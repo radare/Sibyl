@@ -5,8 +5,8 @@ try:
 except ImportError:
     pycparser = None
 else:
-    from miasm2.core.ctypesmngr import c_to_ast, CTypeFunc
-    from miasm2.core.objc import ObjCPtr, ObjCArray
+    from miasm.core.ctypesmngr import c_to_ast, CTypeFunc
+    from miasm.core.objc import ObjCPtr, ObjCArray
 
 def init_logger(name):
     logger = logging.getLogger(name)
@@ -42,8 +42,8 @@ def print_table(ligs, title=True, separator='|', level=0, align=""):
 
     for i, lig in enumerate(ligs):
         if i == 1 and title:
-            print "%s%s" % (tab, "-" * len(fmt.format(*lig)))
-        print "%s%s" % (tab, fmt.format(*lig))
+            print("%s%s" % (tab, "-" * len(fmt.format(*lig))))
+        print("%s%s" % (tab, fmt.format(*lig)))
 
 class HeaderFile(object):
     """Abstract representation of a Header file"""

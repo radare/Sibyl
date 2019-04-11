@@ -76,8 +76,8 @@ class Config(object):
             path = path.replace("$SIBYL", sibyl_base)
 
         if "$MIASM" in path:
-            import miasm2
-            miasm2_base = miasm2.__path__[0]
+            import miasm
+            miasm2_base = miasm.__path__[0]
             path = path.replace("$MIASM", miasm2_base)
 
         path = os.path.expandvars(path)

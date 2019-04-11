@@ -1,14 +1,14 @@
 import struct
 import logging
 
-from miasm2.jitter.loader.elf import vm_load_elf
-from miasm2.analysis.machine import Machine
-from miasm2.jitter.csts import PAGE_READ, PAGE_WRITE, EXCEPT_ACCESS_VIOL, EXCEPT_DIV_BY_ZERO, EXCEPT_PRIV_INSN
-from miasm2.core.bin_stream import bin_stream_vm
-from miasm2.analysis.dse import ESETrackModif
+from miasm.jitter.loader.elf import vm_load_elf
+from miasm.analysis.machine import Machine
+from miasm.jitter.csts import PAGE_READ, PAGE_WRITE, EXCEPT_ACCESS_VIOL, EXCEPT_DIV_BY_ZERO, EXCEPT_PRIV_INSN
+from miasm.core.bin_stream import bin_stream_vm
+from miasm.analysis.dse import ESETrackModif
 import miasm2.expression.expression as m2_expr
-from miasm2.ir.ir import AssignBlock
-from miasm2.core.objc import CHandler
+from miasm.ir.ir import AssignBlock
+from miasm.core.objc import CHandler
 
 from sibyl.commons import objc_is_dereferenceable
 from sibyl.config import config

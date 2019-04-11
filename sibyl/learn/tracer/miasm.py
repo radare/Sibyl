@@ -5,10 +5,10 @@ This module gives a tracer that uses miasm to run the program
 from sibyl.learn.tracer.tracer import Tracer
 from sibyl.learn.trace import Trace, Snapshot
 
-from miasm2.jitter.emulatedsymbexec import EmulatedSymbExec
-from miasm2.jitter.csts import PAGE_READ
-from miasm2.analysis.machine import Machine
-from miasm2.jitter.loader.elf import vm_load_elf
+from miasm.jitter.emulatedsymbexec import EmulatedSymbExec
+from miasm.jitter.csts import PAGE_READ
+from miasm.analysis.machine import Machine
+from miasm.jitter.loader.elf import vm_load_elf
 
 class CustomEmulatedSymbExec(EmulatedSymbExec):
     '''New emulator that trap all memory read and write which is needed by the miasm tracer'''

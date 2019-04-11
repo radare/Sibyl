@@ -6,7 +6,7 @@ import subprocess
 import shutil
 import os
 
-from miasm2.core.asmblock import AsmBlockBad, log_asmblock
+from miasm.core.asmblock import AsmBlockBad, log_asmblock
 
 from sibyl.heuristics.heuristic import Heuristic
 import sibyl.heuristics.csts as csts
