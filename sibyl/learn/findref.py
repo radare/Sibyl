@@ -6,7 +6,7 @@ from miasm.analysis.machine import Machine
 from miasm.jitter.csts import PAGE_READ, PAGE_WRITE, EXCEPT_ACCESS_VIOL, EXCEPT_DIV_BY_ZERO, EXCEPT_PRIV_INSN
 from miasm.core.bin_stream import bin_stream_vm
 from miasm.analysis.dse import ESETrackModif
-import miasm2.expression.expression as m2_expr
+import miasm.expression.expression as m2_expr
 from miasm.ir.ir import AssignBlock
 from miasm.core.objc import CHandler
 
@@ -184,16 +184,16 @@ class ExtractRef(object):
         if cur_addr == 0x1337BEEF or cur_addr == self.return_addr:
             # End reached
             if self.logger.isEnabledFor(logging.DEBUG):
-                print "In:"
+                print("In:")
                 for x in self.memories_read:
-                    print "\t%s (%s)" % (x,
+                    print("\t%s (%s)" % (x,
                                          self.c_handler.expr_to_c(x),
-                    )
-                print "Out:"
+                    ))
+                print("Out:")
                 for x in self.memories_write:
-                    print "\t%s (%s)" % (x,
+                    print("\t%s (%s)" % (x,
                                          self.c_handler.expr_to_c(x),
-                    )
+                    ))
             return True
 
         # Update state
@@ -308,12 +308,12 @@ class ExtractRef(object):
         self.symb.symbols = saved_symbols
 
         if self.logger.isEnabledFor(logging.DEBUG):
-            print "In:"
-            print memory_in
-            print "Out:"
-            print memory_out
-            print "Final value:"
-            print output_value
+            print("In:")
+            print(memory_in)
+            print("Out:")
+            print(memory_out)
+            print("Final value:")
+            print(output_value)
 
         self.snapshot.memory_in = AssignBlock(memory_in)
         self.snapshot.memory_out = AssignBlock(memory_out)

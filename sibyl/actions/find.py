@@ -132,11 +132,11 @@ class ActionFind(Action):
             if not architecture:
                 raise ValueError("Unable to recognize the architecture, please specify it")
             if self.args.verbose > 0:
-                print "Guessed architecture: %s" % architecture
+                print("Guessed architecture: %s" % architecture)
 
         self.machine = Machine(architecture)
         if not self.args.address:
-            print "No function address provided. Use 'sibyl func' to discover addresses"
+            print("No function address provided. Use 'sibyl func' to discover addresses")
             exit(-1)
         addresses = []
         for address in self.args.address:
@@ -150,7 +150,7 @@ class ActionFind(Action):
                 # File
                 addresses = [int(addr, 0) for addr in open(address)]
         if self.args.verbose > 0:
-            print "Found %d addresses" % len(addresses)
+            print("Found %d addresses" % len(addresses))
 
 
         # Select ABI
@@ -160,8 +160,8 @@ class ActionFind(Action):
             if not candidates:
                 raise ValueError("No ABI for architecture %s" % architecture)
             if len(candidates) > 1:
-                print "Please specify the ABI:"
-                print "\t" + "\n\t".join(cand.__name__ for cand in candidates)
+                print("Please specify the ABI:")
+                print("\t" + "\n\t".join(cand.__name__ for cand in candidates))
                 exit(0)
             abicls = candidates.pop()
         else:
@@ -178,7 +178,7 @@ class ActionFind(Action):
             if not self.args.tests or tname in self.args.tests:
                 self.tests += tcases
         if self.args.verbose > 0:
-            print "Found %d test cases" % len(self.tests)
+            print("Found %d test cases" % len(self.tests))
 
         # Prepare multiprocess
         cpu_c = cpu_count()
@@ -222,11 +222,11 @@ class ActionFind(Action):
                 prefix = ""
                 if self.args.verbose > 0:
                     prefix = "\r"
-                print prefix + "0x%08x : %s" % (msg.address, ",".join(msg.results))
+                print(prefix + "0x%08x : %s" % (msg.address, ",".join(msg.results)))
 
         # Clean output if needed
         if self.args.verbose > 0:
-            print ""
+            print("")
 
         # End connexions
         msg_queue.close()
@@ -242,11 +242,11 @@ class ActionFind(Action):
         # Print final results
         if self.args.output_format == "JSON":
             # Expand results to always have the same key, and address as int
-            print json.dumps({"information": {"total_count": len(addresses),
+            print(json.dumps({"information": {"total_count": len(addresses),
                                               "test_cases": len(self.tests)},
                               "results": [{"address": addr, "functions": result}
                                           for addr, result in results.iteritems()],
-            })
+            }))
         elif self.args.output_format == "human" and self.args.verbose > 0:
             # Summarize results
             title = ["Address", "Candidates"]

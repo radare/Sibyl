@@ -16,7 +16,7 @@
 """Configuration handling"""
 
 import os
-import ConfigParser
+import configparser
 
 default_config = {
     "jit_engine": ["qemu", "miasm"],
@@ -87,7 +87,7 @@ class Config(object):
 
     def parse_files(self, files):
         """Load configuration from @files (which could not exist)"""
-        cparser = ConfigParser.SafeConfigParser()
+        cparser = configparser.SafeConfigParser()
         cparser.read(files)
 
         config = {}

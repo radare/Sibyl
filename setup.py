@@ -32,7 +32,10 @@ Sibyl is a tool aiming at recognizing functions in binaries based on their side
     effects, by running them in a sandboxed environment.""",
     keywords=["reverse engineering", "emulation"],
     install_requires=[
-        'miasm2',
+        'miasm',
+        'future',
+        'pycparser',
+        'configparser',
     ],
     packages=['sibyl', 'sibyl/abi', 'sibyl/engine', 'sibyl/learn',
               'sibyl/learn/tracer', 'sibyl/learn/generator',

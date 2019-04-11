@@ -87,5 +87,5 @@ class ActionLearn(Action):
         if self.args.output:
             open(self.args.output, "w+").write(createdTest)
         else:
-            print createdTest
+            print(createdTest)
 
